@@ -1,0 +1,18 @@
+# This file contains general metadata about the project.
+
+@prefix : <http://usefulinc.com/ns/doap#>.
+
+`Lingua-Boolean-Tiny`
+	:programming-language "Perl" ;
+	:shortdesc            "a smaller Lingua::Boolean, with support for more languages";
+	:homepage             <https://metacpan.org/release/Lingua-Boolean-Tiny>;
+	:download-page        <https://metacpan.org/release/Lingua-Boolean-Tiny>;
+	:repository           [ a :HgRepository; :browse <https://bitbucket.org/tobyink/p5-lingua-boolean-tiny> ];
+	:bug-database         <http://rt.cpan.org/Dist/Display.html?Queue=Lingua-Boolean-Tiny>;
+	:created              2013-03-04;
+	:license              <http://dev.perl.org/licenses/>;
+	:maintainer           cpan:TOBYINK;
+	:developer            cpan:TOBYINK.
+
+<http://dev.perl.org/licenses/>
+	dc:title  "the same terms as the perl 5 programming language system itself".
