@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use Test::More;
+use Test::More tests => 84;
 
 use Lingua::Boolean::Tiny;
 
@@ -31,4 +31,3 @@ ok defined boolean($_, ["en", "fr"]) && !boolean($_, ["en", "fr"])
 ok !defined boolean($_, ["en", "fr"])
 	for qw( 666 FOOBAR Foobar foobar JA Ja ja NEIN Nein nein );
 
-done_testing;

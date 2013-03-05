@@ -1,4 +1,4 @@
-use 5.008;
+use 5.006002;
 use strict;
 use warnings;
 use utf8;
@@ -7,7 +7,8 @@ no warnings qw( void once uninitialized );
 {
 	package Lingua::Boolean::Tiny;
 	
-	use Exporter 'import';
+	require Exporter;
+	our @ISA = 'Exporter';
 	
 	our $AUTHORITY = 'cpan:TOBYINK';
 	our $VERSION   = '0.001';
@@ -121,6 +122,7 @@ no warnings qw( void once uninitialized );
 			${"$class\::AUTHORITY"} = $AUTHORITY;
 			${"$class\::VERSION"}   = $VERSION;
 			@{"$class\::ISA"}       = ($base);
+			no warnings qw( closure );
 			eval qq
 			{
 				package $class;
@@ -279,11 +281,11 @@ Lingua::Boolean::Tiny - a smaller Lingua::Boolean, with support for more languag
 =head1 DESCRIPTION
 
 This module provides an API roughly compatible with L<Lingua::Boolean> but
-has no non-core dependencies, supports Perl 5.8 (any earlier and the Unicode
-support is terrible), supports the world's twelve most commonly spoken
-languages (Standard Chinese, English, Castillian Spanish, Hindi, Russian,
-Arabic, Portuguese, Bengali, French, Malay, German and Japanese), and adding
-support for other languages is easy peasy.
+has no non-core dependencies, supports Perl 5.6.2+ (though Perl versions
+earlier than 5.8 have pretty crummy Unicode support), includes the world's
+twelve most commonly spoken languages (Standard Chinese, English, Castillian
+Spanish, Hindi, Russian, Arabic, Portuguese, Bengali, French, Malay, German
+and Japanese), and adding support for other languages is easy peasy.
 
 The strings "Y" and "1" are always true, and "N" and "0" are always false.
 
