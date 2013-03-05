@@ -343,6 +343,16 @@ Returns the name of the languages supported by this object.
 
 Returns the ISO codes of the languages supported by this object.
 
+=item C<< yes >>
+
+Returns a canonical "yes" string for the language. This method only exists
+in objects which support a single language, not a union.
+
+=item C<< no >>
+
+Returns a canonical "no" string for the language. This method only exists
+in objects which support a single language, not a union.
+
 =back
 
 =head2 Functional Interface
