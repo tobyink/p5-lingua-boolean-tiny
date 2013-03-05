@@ -396,7 +396,7 @@ Here's how you'd add support for Italian:
       Italian => [qw( it ita )],     # Language name and ISO codes
       "sì",                          # Canonical "yes"
       "no",                          # Canonical "no"
-      [ qr{^sì$}i ],                 # Other things that match "yes"
+      [ qr{^s[ìi]$}i ],              # Other things that match "yes"
       [ qr{^no$}i ],                 # Other things that match "no"
    ]);
 
