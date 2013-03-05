@@ -2,6 +2,7 @@ use 5.008;
 use strict;
 use warnings;
 use utf8;
+no warnings qw( void once uninitialized );
 
 {
 	package Lingua::Boolean::Tiny;
