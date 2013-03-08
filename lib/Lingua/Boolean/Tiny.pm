@@ -104,8 +104,6 @@ no warnings qw( void once uninitialized );
 		return 0 if fc $text eq fc $self->no;
 		return 1 if match($text, $self->yes_expr);
 		return 0 if match($text, $self->no_expr);
-		return 1 if fc $text eq fc 'y';
-		return 0 if fc $text eq fc 'n';
 		return 1 if $text eq 1;
 		return 0 if $text eq 0;
 		return undef;
@@ -283,13 +281,17 @@ Lingua::Boolean::Tiny - a smaller Lingua::Boolean, with support for more languag
 =head1 DESCRIPTION
 
 This module provides an API roughly compatible with L<Lingua::Boolean> but
-has no non-core dependencies, supports Perl 5.6.2+ (though Perl versions
-earlier than 5.8 have pretty crummy Unicode support), includes the world's
-twelve most commonly spoken languages (Standard Chinese, English, Castillian
-Spanish, Hindi, Russian, Arabic, Portuguese, Bengali, French, Malay, German
-and Japanese), and adding support for other languages is easy peasy.
+has no non-core dependencies, and supports Perl 5.6.2+ (though Perl versions
+earlier than 5.8 have pretty crummy Unicode support).
 
-The strings "Y" and "1" are always true, and "N" and "0" are always false.
+L<Lingua::Boolean::Tiny> includes hand-written support for the world's twelve
+most commonly spoken languages (Standard Chinese, English, Castillian Spanish,
+Hindi, Russian, Arabic, Portuguese, Bengali, French, Malay, German and
+Japanese). L<Lingua::Boolean::Tiny::More> (which is auto loaded on demand)
+provides support for almost any other language you can think of, but it may
+not be to the same standard.
+
+The string "1" is always true, and "0" is always false.
 
 =head2 Object-Oriented Interface
 
@@ -390,20 +392,6 @@ This function is not exported.
 
 =back
 
-=head2 Adding languages
-
-Here's how you'd add support for Italian:
-
-   "Lingua::Boolean::Tiny::BASE"->make_classes([
-      Italian => [qw( it ita )],     # Language name and ISO codes
-      "sì",                          # Canonical "yes"
-      "no",                          # Canonical "no"
-      [ qr{^s[ìi]$}i ],              # Other things that match "yes"
-      [ qr{^no$}i ],                 # Other things that match "no"
-   ]);
-
-Easy peasy!
-
 =head1 BUGS
 
 Please report any bugs to
@@ -416,6 +404,12 @@ L<Lingua::Boolean>, L<String::BooleanSimple>, L<I18N::Langinfo>.
 =head1 AUTHOR
 
 Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
+
+=head1 CREDITS
+
+A thousand thanks to Lars Dɪᴇᴄᴋᴏᴡ 迪拉斯 (cpan:DAXIM) for helping me with
+L<Lingua::Boolean::Tiny::More> and improving some of the translations
+in the main module.
 
 =head1 COPYRIGHT AND LICENCE
 
