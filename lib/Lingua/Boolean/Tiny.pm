@@ -14,6 +14,7 @@ no warnings qw( void once uninitialized );
 	our $VERSION   = '0.001';
 	our @EXPORT    = qw( boolean );
 	our (%LANG, @LANG);
+	our @BASELANG  = qw( zh en es hi ru ar pt bn fr ms de ja );
 	
 	sub new
 	{
@@ -29,8 +30,9 @@ no warnings qw( void once uninitialized );
 		shift;
 		my ($lang) = @_;
 		return "Lingua::Boolean::Tiny::Union"->new(@$lang) if ref($lang);
-		return "Lingua::Boolean::Tiny::Union"->new(@LANG) if !defined $lang;
-		my $class = $LANG{ lc $lang };
+		return "Lingua::Boolean::Tiny::Union"->new(@BASELANG) if !defined $lang;
+		my $class = $LANG{ lc $lang }
+			|| do { require Lingua::Boolean::Tiny::More; $LANG{ lc $lang } };
 		return $class->new if $class;
 		return;
 	}
