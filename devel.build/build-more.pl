@@ -101,10 +101,14 @@ say q{my $langinfo;};
 	=~ s{^(\s+)}{"\t" x (length($1)/2)}egm;
 say $dump;
 
-say <<'BASE';
+print <<'PERL';
 my $base = do {
 	package Lingua::Boolean::Tiny::More;
 	our @ISA = qw(Lingua::Boolean::Tiny::BASE);
+PERL
+say "\t", q{our $AUTHORITY = "}, $Lingua::Boolean::Tiny::AUTHORITY, q{";};
+say "\t", q{our $VERSION   = "}, $Lingua::Boolean::Tiny::VERSION, q{";};
+say <<'PERL';
 	sub _r {
 		my $base   = shift;
 		my $caller = shift || caller;
@@ -112,7 +116,12 @@ my $base = do {
 		my %lang   = %{ $langinfo->{$lang} or return };
 		
 		# Set up new class to inherit from base
-		{ no strict 'refs'; @{"$caller\::ISA"} = $base; }
+		{
+			no strict 'refs';
+			@{"$caller\::ISA"} = $base;
+			${"$caller\::AUTHORITY"} = $AUTHORITY;
+			${"$caller\::VERSION"}   = $VERSION;
+		}
 		
 		$Lingua::Boolean::Tiny::LANG{$lang{NAME}} = $caller;
 		$Lingua::Boolean::Tiny::LANG{$_} = $caller for @{ $lang{CODES} };
@@ -131,9 +140,9 @@ my $base = do {
 	sub langs     { \@{ _l(@_)->{CODES} } };
 	__PACKAGE__;
 };
-BASE
+PERL
 
-say qq{{ package Lingua::Boolean::Tiny::$_; \$base->_r }} for sort keys %langinfo;
+say qq{{ package ##\n  Lingua::Boolean::Tiny::$_; \$base->_r }} for sort keys %langinfo;
 
 say "";
 say "1;";

@@ -1627,6 +1627,8 @@ $langinfo = {
 my $base = do {
 	package Lingua::Boolean::Tiny::More;
 	our @ISA = qw(Lingua::Boolean::Tiny::BASE);
+	our $AUTHORITY = "cpan:TOBYINK";
+	our $VERSION   = "0.002";
 	sub _r {
 		my $base   = shift;
 		my $caller = shift || caller;
@@ -1634,7 +1636,12 @@ my $base = do {
 		my %lang   = %{ $langinfo->{$lang} or return };
 		
 		# Set up new class to inherit from base
-		{ no strict 'refs'; @{"$caller\::ISA"} = $base; }
+		{
+			no strict 'refs';
+			@{"$caller\::ISA"} = $base;
+			${"$caller\::AUTHORITY"} = $AUTHORITY;
+			${"$caller\::VERSION"}   = $VERSION;
+		}
 		
 		$Lingua::Boolean::Tiny::LANG{$lang{NAME}} = $caller;
 		$Lingua::Boolean::Tiny::LANG{$_} = $caller for @{ $lang{CODES} };
@@ -1654,155 +1661,305 @@ my $base = do {
 	__PACKAGE__;
 };
 
-{ package Lingua::Boolean::Tiny::Afar; $base->_r }
-{ package Lingua::Boolean::Tiny::Afrikaans; $base->_r }
-{ package Lingua::Boolean::Tiny::Albanian; $base->_r }
-{ package Lingua::Boolean::Tiny::Amharic; $base->_r }
-{ package Lingua::Boolean::Tiny::Aragonese; $base->_r }
-{ package Lingua::Boolean::Tiny::Armenian; $base->_r }
-{ package Lingua::Boolean::Tiny::Assamese; $base->_r }
-{ package Lingua::Boolean::Tiny::Asturian; $base->_r }
-{ package Lingua::Boolean::Tiny::Azerbaijani; $base->_r }
-{ package Lingua::Boolean::Tiny::Basque; $base->_r }
-{ package Lingua::Boolean::Tiny::Belarusian; $base->_r }
-{ package Lingua::Boolean::Tiny::Bemba_Zambia; $base->_r }
-{ package Lingua::Boolean::Tiny::Berber_languages; $base->_r }
-{ package Lingua::Boolean::Tiny::Bhojpuri; $base->_r }
-{ package Lingua::Boolean::Tiny::Blin; $base->_r }
-{ package Lingua::Boolean::Tiny::Bodo_India; $base->_r }
-{ package Lingua::Boolean::Tiny::Bokmal_Norwegian; $base->_r }
-{ package Lingua::Boolean::Tiny::Bosnian; $base->_r }
-{ package Lingua::Boolean::Tiny::Breton; $base->_r }
-{ package Lingua::Boolean::Tiny::Bulgarian; $base->_r }
-{ package Lingua::Boolean::Tiny::Burmese; $base->_r }
-{ package Lingua::Boolean::Tiny::Catalan; $base->_r }
-{ package Lingua::Boolean::Tiny::Central_Khmer; $base->_r }
-{ package Lingua::Boolean::Tiny::Chhattisgarhi; $base->_r }
-{ package Lingua::Boolean::Tiny::Chuvash; $base->_r }
-{ package Lingua::Boolean::Tiny::Cornish; $base->_r }
-{ package Lingua::Boolean::Tiny::Crimean_Tatar; $base->_r }
-{ package Lingua::Boolean::Tiny::Croatian; $base->_r }
-{ package Lingua::Boolean::Tiny::Czech; $base->_r }
-{ package Lingua::Boolean::Tiny::Danish; $base->_r }
-{ package Lingua::Boolean::Tiny::Divehi; $base->_r }
-{ package Lingua::Boolean::Tiny::Dutch; $base->_r }
-{ package Lingua::Boolean::Tiny::Dzongkha; $base->_r }
-{ package Lingua::Boolean::Tiny::Eastern_Mari; $base->_r }
-{ package Lingua::Boolean::Tiny::Estonian; $base->_r }
-{ package Lingua::Boolean::Tiny::Faroese; $base->_r }
-{ package Lingua::Boolean::Tiny::Filipino; $base->_r }
-{ package Lingua::Boolean::Tiny::Finnish; $base->_r }
-{ package Lingua::Boolean::Tiny::Friulian; $base->_r }
-{ package Lingua::Boolean::Tiny::Fulah; $base->_r }
-{ package Lingua::Boolean::Tiny::Gaelic; $base->_r }
-{ package Lingua::Boolean::Tiny::Galician; $base->_r }
-{ package Lingua::Boolean::Tiny::Ganda; $base->_r }
-{ package Lingua::Boolean::Tiny::Geez; $base->_r }
-{ package Lingua::Boolean::Tiny::Georgian; $base->_r }
-{ package Lingua::Boolean::Tiny::Gujarati; $base->_r }
-{ package Lingua::Boolean::Tiny::Haitian; $base->_r }
-{ package Lingua::Boolean::Tiny::Hausa; $base->_r }
-{ package Lingua::Boolean::Tiny::Hebrew; $base->_r }
-{ package Lingua::Boolean::Tiny::Hungarian; $base->_r }
-{ package Lingua::Boolean::Tiny::Icelandic; $base->_r }
-{ package Lingua::Boolean::Tiny::Igbo; $base->_r }
-{ package Lingua::Boolean::Tiny::Indonesian; $base->_r }
-{ package Lingua::Boolean::Tiny::Inuktitut; $base->_r }
-{ package Lingua::Boolean::Tiny::Inupiaq; $base->_r }
-{ package Lingua::Boolean::Tiny::Irish; $base->_r }
-{ package Lingua::Boolean::Tiny::Italian; $base->_r }
-{ package Lingua::Boolean::Tiny::Kalaallisut; $base->_r }
-{ package Lingua::Boolean::Tiny::Kannada; $base->_r }
-{ package Lingua::Boolean::Tiny::Kashmiri; $base->_r }
-{ package Lingua::Boolean::Tiny::Kashubian; $base->_r }
-{ package Lingua::Boolean::Tiny::Kazakh; $base->_r }
-{ package Lingua::Boolean::Tiny::Kinyarwanda; $base->_r }
-{ package Lingua::Boolean::Tiny::Kirghiz; $base->_r }
-{ package Lingua::Boolean::Tiny::Konkani_macrolanguage; $base->_r }
-{ package Lingua::Boolean::Tiny::Korean; $base->_r }
-{ package Lingua::Boolean::Tiny::Kurdish; $base->_r }
-{ package Lingua::Boolean::Tiny::Lao; $base->_r }
-{ package Lingua::Boolean::Tiny::Latvian; $base->_r }
-{ package Lingua::Boolean::Tiny::Ligurian; $base->_r }
-{ package Lingua::Boolean::Tiny::Limburgan; $base->_r }
-{ package Lingua::Boolean::Tiny::Lithuanian; $base->_r }
-{ package Lingua::Boolean::Tiny::Low_German; $base->_r }
-{ package Lingua::Boolean::Tiny::Luxembourgish; $base->_r }
-{ package Lingua::Boolean::Tiny::Macedonian; $base->_r }
-{ package Lingua::Boolean::Tiny::Magahi; $base->_r }
-{ package Lingua::Boolean::Tiny::Maithili; $base->_r }
-{ package Lingua::Boolean::Tiny::Malagasy; $base->_r }
-{ package Lingua::Boolean::Tiny::Malay_macrolanguage; $base->_r }
-{ package Lingua::Boolean::Tiny::Malayalam; $base->_r }
-{ package Lingua::Boolean::Tiny::Maltese; $base->_r }
-{ package Lingua::Boolean::Tiny::Manx; $base->_r }
-{ package Lingua::Boolean::Tiny::Maori; $base->_r }
-{ package Lingua::Boolean::Tiny::Marathi; $base->_r }
-{ package Lingua::Boolean::Tiny::Min_Nan_Chinese; $base->_r }
-{ package Lingua::Boolean::Tiny::Modern_Greek; $base->_r }
-{ package Lingua::Boolean::Tiny::Mongolian; $base->_r }
-{ package Lingua::Boolean::Tiny::Ndebele_South; $base->_r }
-{ package Lingua::Boolean::Tiny::Nepali; $base->_r }
-{ package Lingua::Boolean::Tiny::Northern_Sami; $base->_r }
-{ package Lingua::Boolean::Tiny::Norwegian; $base->_r }
-{ package Lingua::Boolean::Tiny::Norwegian_Nynorsk; $base->_r }
-{ package Lingua::Boolean::Tiny::Occitan_post; $base->_r }
-{ package Lingua::Boolean::Tiny::Oriya; $base->_r }
-{ package Lingua::Boolean::Tiny::Oromo; $base->_r }
-{ package Lingua::Boolean::Tiny::Ossetian; $base->_r }
-{ package Lingua::Boolean::Tiny::Panjabi; $base->_r }
-{ package Lingua::Boolean::Tiny::Papiamento; $base->_r }
-{ package Lingua::Boolean::Tiny::Pedi; $base->_r }
-{ package Lingua::Boolean::Tiny::Persian; $base->_r }
-{ package Lingua::Boolean::Tiny::Polish; $base->_r }
-{ package Lingua::Boolean::Tiny::Pushto; $base->_r }
-{ package Lingua::Boolean::Tiny::Romanian; $base->_r }
-{ package Lingua::Boolean::Tiny::Sanskrit; $base->_r }
-{ package Lingua::Boolean::Tiny::Sardinian; $base->_r }
-{ package Lingua::Boolean::Tiny::Serbian; $base->_r }
-{ package Lingua::Boolean::Tiny::Serbo_Croatian; $base->_r }
-{ package Lingua::Boolean::Tiny::Shuswap; $base->_r }
-{ package Lingua::Boolean::Tiny::Sidamo; $base->_r }
-{ package Lingua::Boolean::Tiny::Sindhi; $base->_r }
-{ package Lingua::Boolean::Tiny::Sinhala; $base->_r }
-{ package Lingua::Boolean::Tiny::Slovak; $base->_r }
-{ package Lingua::Boolean::Tiny::Slovenian; $base->_r }
-{ package Lingua::Boolean::Tiny::Somali; $base->_r }
-{ package Lingua::Boolean::Tiny::Southern_Sotho; $base->_r }
-{ package Lingua::Boolean::Tiny::Swahili_macrolanguage; $base->_r }
-{ package Lingua::Boolean::Tiny::Swati; $base->_r }
-{ package Lingua::Boolean::Tiny::Swedish; $base->_r }
-{ package Lingua::Boolean::Tiny::Tagalog; $base->_r }
-{ package Lingua::Boolean::Tiny::Tajik; $base->_r }
-{ package Lingua::Boolean::Tiny::Tamil; $base->_r }
-{ package Lingua::Boolean::Tiny::Tatar; $base->_r }
-{ package Lingua::Boolean::Tiny::Telugu; $base->_r }
-{ package Lingua::Boolean::Tiny::Thai; $base->_r }
-{ package Lingua::Boolean::Tiny::Tibetan; $base->_r }
-{ package Lingua::Boolean::Tiny::Tigre; $base->_r }
-{ package Lingua::Boolean::Tiny::Tigrinya; $base->_r }
-{ package Lingua::Boolean::Tiny::Tsonga; $base->_r }
-{ package Lingua::Boolean::Tiny::Tswana; $base->_r }
-{ package Lingua::Boolean::Tiny::Turkish; $base->_r }
-{ package Lingua::Boolean::Tiny::Turkmen; $base->_r }
-{ package Lingua::Boolean::Tiny::Uighur; $base->_r }
-{ package Lingua::Boolean::Tiny::Ukrainian; $base->_r }
-{ package Lingua::Boolean::Tiny::Unami; $base->_r }
-{ package Lingua::Boolean::Tiny::Upper_Sorbian; $base->_r }
-{ package Lingua::Boolean::Tiny::Urdu; $base->_r }
-{ package Lingua::Boolean::Tiny::Uzbek; $base->_r }
-{ package Lingua::Boolean::Tiny::Venda; $base->_r }
-{ package Lingua::Boolean::Tiny::Vietnamese; $base->_r }
-{ package Lingua::Boolean::Tiny::Walloon; $base->_r }
-{ package Lingua::Boolean::Tiny::Walser; $base->_r }
-{ package Lingua::Boolean::Tiny::Welsh; $base->_r }
-{ package Lingua::Boolean::Tiny::Western_Frisian; $base->_r }
-{ package Lingua::Boolean::Tiny::Wolaytta; $base->_r }
-{ package Lingua::Boolean::Tiny::Wolof; $base->_r }
-{ package Lingua::Boolean::Tiny::Xhosa; $base->_r }
-{ package Lingua::Boolean::Tiny::Yiddish; $base->_r }
-{ package Lingua::Boolean::Tiny::Yoruba; $base->_r }
-{ package Lingua::Boolean::Tiny::Yue_Chinese; $base->_r }
-{ package Lingua::Boolean::Tiny::Zulu; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Afar; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Afrikaans; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Albanian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Amharic; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Aragonese; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Armenian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Assamese; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Asturian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Azerbaijani; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Basque; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Belarusian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Bemba_Zambia; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Berber_languages; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Bhojpuri; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Blin; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Bodo_India; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Bokmal_Norwegian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Bosnian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Breton; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Bulgarian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Burmese; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Catalan; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Central_Khmer; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Chhattisgarhi; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Chuvash; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Cornish; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Crimean_Tatar; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Croatian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Czech; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Danish; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Divehi; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Dutch; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Dzongkha; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Eastern_Mari; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Estonian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Faroese; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Filipino; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Finnish; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Friulian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Fulah; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Gaelic; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Galician; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Ganda; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Geez; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Georgian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Gujarati; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Haitian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Hausa; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Hebrew; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Hungarian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Icelandic; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Igbo; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Indonesian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Inuktitut; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Inupiaq; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Irish; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Italian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Kalaallisut; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Kannada; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Kashmiri; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Kashubian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Kazakh; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Kinyarwanda; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Kirghiz; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Konkani_macrolanguage; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Korean; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Kurdish; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Lao; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Latvian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Ligurian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Limburgan; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Lithuanian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Low_German; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Luxembourgish; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Macedonian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Magahi; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Maithili; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Malagasy; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Malay_macrolanguage; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Malayalam; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Maltese; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Manx; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Maori; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Marathi; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Min_Nan_Chinese; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Modern_Greek; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Mongolian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Ndebele_South; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Nepali; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Northern_Sami; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Norwegian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Norwegian_Nynorsk; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Occitan_post; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Oriya; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Oromo; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Ossetian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Panjabi; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Papiamento; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Pedi; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Persian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Polish; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Pushto; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Romanian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Sanskrit; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Sardinian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Serbian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Serbo_Croatian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Shuswap; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Sidamo; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Sindhi; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Sinhala; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Slovak; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Slovenian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Somali; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Southern_Sotho; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Swahili_macrolanguage; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Swati; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Swedish; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Tagalog; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Tajik; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Tamil; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Tatar; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Telugu; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Thai; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Tibetan; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Tigre; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Tigrinya; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Tsonga; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Tswana; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Turkish; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Turkmen; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Uighur; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Ukrainian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Unami; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Upper_Sorbian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Urdu; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Uzbek; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Venda; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Vietnamese; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Walloon; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Walser; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Welsh; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Western_Frisian; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Wolaytta; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Wolof; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Xhosa; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Yiddish; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Yoruba; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Yue_Chinese; $base->_r }
+{ package ##
+  Lingua::Boolean::Tiny::Zulu; $base->_r }
 
 1;
