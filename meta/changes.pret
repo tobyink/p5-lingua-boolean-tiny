@@ -17,3 +17,9 @@
 			dcs:thanks cpan:DAXIM;
 		];
 	].
+
+`Lingua-Boolean-Tiny 0.003 cpan:TOBYINK`
+	issued  2013-03-09;
+	changeset [
+		item "Lingua::Boolean::Tiny::Union now autoloads More.pm if necessary."^^Bugfix;
+	].
