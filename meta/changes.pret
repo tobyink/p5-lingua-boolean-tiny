@@ -4,3 +4,16 @@
 	issued  2013-03-05;
 	label   "Initial release".
 
+`Lingua-Boolean-Tiny 0.002 cpan:TOBYINK`
+	issued  2013-03-09;
+	changeset [
+		item [
+			a dcs:Addition;
+			label "Lingua::Boolean::Tiny::More adds support for 150 more languages.";
+			dcs:thanks cpan:DAXIM;
+		];
+		item [
+			label "Improved translations.";
+			dcs:thanks cpan:DAXIM;
+		];
+	].
