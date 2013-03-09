@@ -154,11 +154,7 @@ no warnings qw( void once uninitialized );
 	sub new
 	{
 		my $class = shift;
-		bless [
-			map  $_->new,
-			grep defined,
-			map  $Lingua::Boolean::Tiny::LANG{lc $_}, @_
-		] => $class;
+		bless [ grep defined, map "Lingua::Boolean::Tiny"->new_strict($_), @_ ] => $class;
 	}
 	
 	sub boolean
@@ -323,7 +319,8 @@ order is significant - in case of ambiguities, the earlier language wins.
 
 =item C<< Lingua::Boolean::Tiny->new() >>
 
-Construct a new object supporting the union of all supported languages.
+Construct a new object supporting the union of the twelve main supported
+languages.
 
 =item C<< Lingua::Boolean::Tiny->new_strict($lang) >>
 
