@@ -23,3 +23,9 @@
 	changeset [
 		item "Lingua::Boolean::Tiny::Union now autoloads More.pm if necessary."^^Bugfix;
 	].
+
+`Lingua-Boolean-Tiny 0.004 cpan:TOBYINK`
+	issued  2013-03-12;
+	changeset [
+		item "Force Perl 5.10.0 down the legacy code path (manual 'smart match' implementation) as $scalar~~@array behaviour was changed in 5.10.1."^^Bugfix;
+	].
