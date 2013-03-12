@@ -67,7 +67,7 @@ no warnings qw( void once uninitialized );
 	
 	eval q
 	{
-		use 5.010;
+		use v5.10.1;
 		sub match
 		{
 			my ($a, $b) = @_;
