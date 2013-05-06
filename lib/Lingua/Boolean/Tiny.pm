@@ -129,7 +129,7 @@ no warnings qw( void once uninitialized );
 				sub new       { my \$k = shift; bless qr{$lang}, \$k };
 				sub yes       { \$yes };
 				sub no        { \$no };
-				sub yesno     { \$_[1] ? \$yes : \$no };
+				sub yesno     { \$_[1] ? \$_[0]->yes : \$_[0]->no };
 				sub yes_expr  { \$yes_expr };
 				sub no_expr   { \$no_expr };
 				sub languages { \$lang };
