@@ -29,3 +29,13 @@
 	changeset [
 		item "Force Perl 5.10.0 down the legacy code path (manual 'smart match' implementation) as $scalar~~@array behaviour was changed in 5.10.1."^^Bugfix;
 	].
+
+`Lingua-Boolean-Tiny 0.005 cpan:TOBYINK`
+	issued  2013-05-06;
+	changeset [
+		item [
+			a dcs:Addition;
+			label "yesno method";
+			dcs:blame cpan:DJERIUS;
+		];
+	].
