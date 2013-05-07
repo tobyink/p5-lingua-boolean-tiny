@@ -109,6 +109,11 @@ no warnings qw( void once uninitialized );
 		return undef;
 	}
 	
+	sub yesno
+	{
+		$_[1] ? $_[0]->yes : $_[0]->no
+	}
+	
 	sub make_classes
 	{
 		my $base = shift;
@@ -129,7 +134,6 @@ no warnings qw( void once uninitialized );
 				sub new       { my \$k = shift; bless qr{$lang}, \$k };
 				sub yes       { \$yes };
 				sub no        { \$no };
-				sub yesno     { \$_[1] ? \$_[0]->yes : \$_[0]->no };
 				sub yes_expr  { \$yes_expr };
 				sub no_expr   { \$no_expr };
 				sub languages { \$lang };
@@ -367,6 +371,8 @@ in objects which support a single language, not a union.
 Returns a canonical "yes" or "no" string for the language, depending
 upon whether C<$boolean> is true or false.  This method only exists in
 objects which support a single language, not a union.
+
+This method is effectively the inverse of the C<boolean> method.
 
 =back
 
