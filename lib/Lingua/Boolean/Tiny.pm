@@ -11,7 +11,7 @@ no warnings qw( void once uninitialized );
 	our @ISA = 'Exporter';
 	
 	our $AUTHORITY = 'cpan:TOBYINK';
-	our $VERSION   = '0.005';
+	our $VERSION   = '0.006';
 	our @EXPORT    = qw( boolean );
 	our (%LANG, @LANG);
 	our @BASELANG  = qw( zh en es hi ru ar pt bn fr ms de ja );
@@ -59,7 +59,7 @@ no warnings qw( void once uninitialized );
 	package Lingua::Boolean::Tiny::BASE;
 	
 	our $AUTHORITY = 'cpan:TOBYINK';
-	our $VERSION   = '0.005';
+	our $VERSION   = '0.006';
 	
 	# Versions of ~~ and fc for legacy Perls...
 	use if $] >= 5.016, feature => 'fc';
@@ -154,7 +154,7 @@ no warnings qw( void once uninitialized );
 	package Lingua::Boolean::Tiny::Union;
 	
 	our $AUTHORITY = 'cpan:TOBYINK';
-	our $VERSION   = '0.005';
+	our $VERSION   = '0.006';
 	
 	sub new
 	{

@@ -39,3 +39,9 @@
 			dcs:blame cpan:DJERIUS;
 		];
 	].
+
+`Lingua-Boolean-Tiny 0.006 cpan:TOBYINK`
+	issued  2013-05-07;
+	changeset [
+		item "Bikeshedding - isn't yesno a lovely colour now?"^^Change;
+	].
