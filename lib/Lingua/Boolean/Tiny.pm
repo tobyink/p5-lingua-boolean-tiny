@@ -68,11 +68,8 @@ no warnings qw( void once uninitialized );
 	eval q
 	{
 		use v5.10.1;
-		sub match
-		{
-			my ($a, $b) = @_;
-			$a ~~ $b;
-		}
+		no warnings;
+		sub match { $_[0] ~~ $_[1] };
 		1;
 	}
 	or eval q
