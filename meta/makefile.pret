@@ -1,8 +1,7 @@
 # This file provides instructions for packaging.
 
 `Lingua-Boolean-Tiny`
-	perl_version_from m`Lingua::Boolean::Tiny`;
-	version_from      m`Lingua::Boolean::Tiny`;
-	readme_from       m`Lingua::Boolean::Tiny`;
-.
+	deps:runtime-requirement [ deps:on "perl 5.006002"^^deps:CpanId ];
+	deps:test-requirement    [ deps:on "Test::More"^^deps:CpanId ];
+	.
 

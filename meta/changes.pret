@@ -45,3 +45,17 @@
 	changeset [
 		item "Bikeshedding - isn't yesno a lovely colour now?"^^Change;
 	].
+
+`Lingua-Boolean-Tiny 0.007 cpan:TOBYINK`
+	issued  2014-07-23;
+	label   "Bond... James Bond";
+	changeset [
+		item "use Dist::Inkt."^^Packaging;
+		item "Prefer match::simple (if available) over smartmatch."^^Change;
+		item [
+			a dcs:Bugfix;
+			label "Fix smartmatch-related warning on Perl >= 5.18.";
+			dcs:fixes RT#97328;
+			dcs:thanks cpan:DJERIUS;
+		];
+	].
