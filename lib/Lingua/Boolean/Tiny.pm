@@ -67,6 +67,11 @@ no warnings qw( void once uninitialized );
 	
 	eval q
 	{
+		use match::simple qw(match);
+		1;
+	}
+	or eval q
+	{
 		use v5.10.1;
 		no warnings;
 		sub match { $_[0] ~~ $_[1] };
