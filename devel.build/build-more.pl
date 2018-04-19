@@ -4,6 +4,7 @@ use Locale::Codes::Language;
 use List::MoreUtils 'uniq';
 use Lingua::Boolean::Tiny;
 use Data::Dumper;
+use match::simple qw(match);
 
 my (%langinfo, $currlang, $currlocale);
 
@@ -79,12 +80,15 @@ for my $l (keys %langinfo)
 	$class =~ s/^_//g;
 	$class =~ s/_$//g;
 	next if "Lingua::Boolean::Tiny::$class"->can("new");  # already exists
-	next if $class ~~ [qw/ More Union BASE /];
+	next if match $class, [qw/ More Union BASE /];
 	$tmp{$class} = $langinfo{$l};
 }
 %langinfo = %tmp;
 
 say "use $_;" for qw< 5.006002 strict warnings >, q<Lingua::Boolean::Tiny ()>;
+say "";
+
+say "## skip Test::Tabs";
 say "";
 
 say "#";
