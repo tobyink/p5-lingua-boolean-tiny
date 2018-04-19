@@ -1628,7 +1628,7 @@ my $base = do {
 	package Lingua::Boolean::Tiny::More;
 	our @ISA = qw(Lingua::Boolean::Tiny::BASE);
 	our $AUTHORITY = "cpan:TOBYINK";
-	our $VERSION   = "0.007";
+	our $VERSION   = "0.008";
 	sub _r {
 		my $base   = shift;
 		my $caller = shift || caller;

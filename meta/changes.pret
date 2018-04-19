@@ -59,3 +59,12 @@
 			dcs:thanks cpan:DJERIUS;
 		];
 	].
+
+`Lingua-Boolean-Tiny 0.008 cpan:TOBYINK`
+	issued  2018-04-19;
+	changeset [
+		item [
+			label "Improvements to German.";
+			dcs:fixes RT#124322;
+		];
+	].
