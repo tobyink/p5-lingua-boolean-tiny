@@ -252,8 +252,8 @@ no warnings qw( void once uninitialized );
 	[
 		German => [qw( de deu ger )],
 		qw( ja nein ),
-		[qr{^[jJyY].*}, qr{^ja?$}i],
-		[qr{^[nN].*}, qr{^n(?:ein)?$}i, qr{^y}i],
+		[qr{^[jJyY].*}, qr{^ja?$}i, qr{^wahr$}i],
+		[qr{^[nN].*}, qr{^n(?:ein)?$}i, qr{^falsche$}i],
 	],
 	[
 		Japanese => [qw( ja jpn )],
